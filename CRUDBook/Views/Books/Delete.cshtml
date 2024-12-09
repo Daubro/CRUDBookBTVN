@@ -1,0 +1,20 @@
+﻿@model CRUDBook.Models.Book
+
+<div class="container mt-5">
+    <!-- Header -->
+    <h1 class="text-center mb-4">Xác nhận xóa sách</h1>
+
+    <!-- Card UI -->
+    <div class="card p-4 shadow-sm">
+        <p class="text-center mb-3">Bạn có chắc chắn muốn xóa sách <strong>"@Model.Title"</strong> không?</p>
+
+        <!-- Form xác nhận xóa -->
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="ID" />
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-danger btn-lg me-2">Xóa sách</button>
+                <a class="btn btn-secondary btn-lg" asp-action="Index">Hủy</a>
+            </div>
+        </form>
+    </div>
+</div>

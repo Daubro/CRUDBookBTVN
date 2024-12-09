@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CRUDBook.Models.Book>
+
+<!-- Header Section -->
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Danh sách sách</h1>
+
+    <!-- Thêm sách mới -->
+    <div class="text-center mb-3">
+        <a class="btn btn-primary" asp-action="Create">Thêm sách mới</a>
+    </div>
+
+    <!-- Bảng Danh sách sách -->
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Tiêu đề</th>
+                    <th>Tác giả</th>
+                    <th>Giá</th>
+                    <th>Hình ảnh</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Price.ToString("N0") VNĐ</td>
+                        <td>
+                            @if (book.ImagePath != null)
+                            {
+                                <img src="@book.ImagePath" width="100" class="img-thumbnail" alt="Book Image" />
+                            }
+                            else
+                            {
+                                <span>Không có hình ảnh</span>
+                            }
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@book.ID">Chỉnh sửa</a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@book.ID">Xóa</a>
+                                <a class="btn btn-info" asp-action="Details" asp-route-id="@book.ID">Xem chi tiết</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

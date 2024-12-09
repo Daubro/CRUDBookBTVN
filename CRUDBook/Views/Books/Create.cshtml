@@ -1,0 +1,35 @@
+﻿@model CRUDBook.Models.Book
+
+<div class="container mt-5">
+    <!-- Header -->
+    <h1 class="text-center mb-4">Thêm sách mới</h1>
+
+    <!-- Form Thêm sách -->
+    <form asp-action="Create" enctype="multipart/form-data" method="post">
+        <div class="card p-4 shadow-sm">
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="form-label">Tiêu đề sách</label>
+                <input asp-for="Title" class="form-control" />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Author" class="form-label">Tác giả</label>
+                <input asp-for="Author" class="form-control" />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Price" class="form-label">Giá</label>
+                <input asp-for="Price" class="form-control" />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="form-label">Mô tả</label>
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="ImageFile" class="form-label">Chọn hình ảnh</label>
+                <input asp-for="ImageFile" class="form-control" type="file" />
+            </div>
+            <div class="text-center mt-3">
+                <button class="btn btn-primary btn-lg">Thêm sách</button>
+            </div>
+        </div>
+    </form>
+</div>
